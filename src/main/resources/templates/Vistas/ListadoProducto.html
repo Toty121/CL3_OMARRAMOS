@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Listado de Productos</title>
+</head>
+<body>
+
+<h1 align="center">Listado de Productos</h1>	
+
+<h2 align="center">
+    <a th:href="@{/RegistrarCliente}" th:text="'Nuevo Registro'" title="Crear Nuevo Registro"
+       class="btn btn-success"></a>
+</h2>
+
+<table align="center" border="2">
+    <tr>
+        <th>Codigo</th>
+        <th>Nombre</th>
+        <th>Precio Venta</th>
+        <th>Precio Compra</th>
+        <th>Estado</th>
+        <th>Descripción</th>
+        <th colspan="2">Acciones</th>
+    </tr>
+    <tr th:each="p : ${listado}">
+        <td th:text="${p.codigo}"></td>
+        <td th:text="${p.nombre}"></td>
+        <td th:text="${p.precioVenta}"></td>
+        <td th:text="${p.precioCompra}"></td>
+        <td th:text="${p.estado}"></td>
+        <td th:text="${p.descripcion}"></td>
+        <td><a th:href="@{/editar/} + ${p.codigo}" th:text="Editar" title="Editar Registro"
+               class="btn btn-primary"></a></td>
+        <td><a th:href="@{/eliminar/} + ${p.codigo}" th:text="Eliminar" class="btn btn-warning"></a></td>
+    </tr>
+</table>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+	
